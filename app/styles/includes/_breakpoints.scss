@@ -1,0 +1,55 @@
+// Media breakpoints.
+@mixin respond-to($media) {
+  @if $media == device-portrait {
+    @media only screen and (max-device-width: $break-device) and (orientation:portrait) { @content; }
+  }
+  @else if $media == device-landscape {
+    @media only screen and (max-device-width: $break-device) and (orientation:landscape) { @content; }
+  }
+  @else if $media == device-only {
+    @media only screen and (max-device-width: $break-device) { @content; }
+  }
+  @else if $media == device-max {
+    @media only screen and (max-width: $break-device) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-device + 1) { @content; }
+  }
+  @else if $media == tablet-portrait {
+    @media only screen and (min-width: $break-device + 1) and (orientation:portrait) { @content; }
+  }
+  @else if $media == tablet-landscape {
+    @media only screen and (min-width: $break-device + 1) and (orientation:landscape) { @content; }
+  }
+  @else if $media == tablet-only {
+    @media only screen and (max-device-width: 1024px) { @content; }
+  }
+  @else if $media == tablet-max {
+    @media only screen and (max-width: $break-smallscreen - 1) { @content; }
+  }
+  @else if $media == smallscreen {
+    @media only screen and (min-width: $break-smallscreen) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+  @else if $media == desktop-max {
+    @media only screen and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == desktop-short {
+    @media only screen and (min-width: $break-large) and (max-height: 800px) { @content; }
+  }
+  @else if $media == desktop-large {
+    @media only screen and (min-width: $break-xlarge) { @content; }
+  }
+  @else if $media == widescreen {
+    @media only screen and (min-width: $break-xxlarge) { @content; }
+  }
+  @else if $media == tv {
+    @media only screen and (min-width: $break-tv) { @content; }
+  }
+  /* iPhone 5 or iPod Touch 5th generation */
+  @else if $media == iphone5 {
+    @media (device-height: 568px) and (-webkit-min-device-pixel-ratio: 2) { @content; }
+  }
+}

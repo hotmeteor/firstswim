@@ -1,0 +1,980 @@
+@import 'includes/global';
+
+$modal-anim-duration: 400ms;
+$modal-anim-delay: 100ms;
+$modal-anim-timing: $ease-in-out-cubic;
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    top: 0;
+}
+
+.container {    
+    overflow-x: hidden;
+    width: 100%;
+    @include transition-property(transform);
+    @include transition-duration($modal-anim-duration - $modal-anim-delay);
+    @include transition-timing-function($modal-anim-timing);
+}
+
+.row {
+    display: block;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.content {    
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 53em;
+    width: 90%;
+}
+
+.content--narrow {
+    max-width: 650px;
+}
+
+.inner {
+    padding: 1em;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.clearfix {
+    @include clearfix();
+}
+
+// Backgrounds
+
+.bgimg-pool {    
+    background: url(../images/bg-pool.jpg) no-repeat center top;
+    background-size: cover;
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+.bg-tint {
+    background-color: $color-blue-faint;
+}
+
+.bg-blue {
+    background-color: $color-blue-mid;
+}
+
+.bg-dark {
+    background-color: $color-blue-dark;
+}
+
+// Texts
+.text-small {
+    font-size: 14px;
+}
+
+.text-white {
+    color: #fff;
+
+    small {
+        color: rgba(#fff, .5);
+    }
+}
+
+.text-tint {
+    color: desaturate(tint($color-blue, 10%), 70);
+}
+
+.text-orange {
+    color: $color-orange-mid;
+}
+
+
+@include respond-to(tablet) {
+
+}
+
+@include respond-to(smallscreen) {
+
+    .col {
+        float: left;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+
+    .col--a {
+        padding-left: 0;
+    }
+
+    .col--o {
+        padding-right: 0;
+    }
+
+    .col--half {
+        width: 50%;
+    }
+
+    .col--third {
+        width: 33.33%;
+    }
+}
+
+// Typo
+
+h1 {
+    font-size: 24px;
+    line-height: 1.1;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1em;
+
+    small {
+        display: block;
+        font-size: .6em;
+        font-weight: 700;
+    }
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: .5em;
+}
+
+p {
+    font-size: 17px;
+    margin-bottom: 1em;
+}
+
+dl {
+    margin: 0;
+    padding: 0;
+}
+
+dt {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+dd {
+    font-size: 18px;
+    margin-bottom: 1.2em;
+    margin-left: 0;
+}
+
+// Buttons.
+
+button,
+.button {
+    @include appearance(none);
+
+    border: 0 transparent;
+    box-shadow: rgba(#000,.25) 0 3px 1px;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 700;
+    padding: .8em 1em;
+    text-decoration: none;
+
+    &:active {
+        box-shadow: inset rgba(#000,.25) 0 1px 1px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.button--large {
+    font-size: 22px;
+    font-weight: 500;
+    padding: .4em .8em;
+}
+
+.button--orange {
+    background-color: $color-orange;
+    color: #fff;
+
+    &:active {
+        background-color: $color-orange-mid;
+    }
+}
+
+@include respond-to(tablet) {
+
+    h2 {
+        font-size: 30px;
+        font-weight: 300;
+        max-width: 15em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5em;
+        text-align: center;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    dl {
+        text-align: center;
+    }
+
+    dt {
+        font-size: 24px;
+        font-weight: 500;
+        margin-bottom: .5em;
+    }
+
+    dd {
+        font-size: 21px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 2em;
+        max-width: 32em;
+    }
+
+}
+
+@include respond-to(smallscreen) {
+    button {
+        font-size: 16px;
+        padding: .8em 1.2em;
+    }
+}
+
+@include respond-to(desktop) {
+
+    h2 {
+        font-size: 36px;
+    }
+
+}
+
+
+// Siteheader
+.siteheader {
+    background-color: $color-blue;
+    padding: 5% 0 7%;
+
+    .csstransforms & {
+        background-color: transparent;
+        position: relative;         
+
+        &:before {
+            background-color: rgba($color-blue-dark,.5);
+            content: "";
+            display: block;
+            position: absolute;
+            top: -2em;
+            left: -5%;
+            height: 100%;
+            width: 120%;
+            @include transform(rotate(-3deg));
+            z-index: -1;
+        }
+    }
+
+    .content {
+        position: relative;
+        padding-bottom: 1em;
+    }
+
+    @include respond-to(tablet) {
+        background: none;
+        margin-bottom: 0;
+        padding-bottom: 3%;
+        // text-align: center;
+        
+        .csstransforms & {
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
+.logo {
+    color: #fff;
+    display: block;
+    height: 20px;
+    line-height: 1;
+    margin: 0;
+
+    img {
+        display: inline-block;
+        max-height: 100%;
+        margin-bottom: 5px;
+    }
+
+    @include respond-to(tablet) {
+        height: 32px;
+    }
+}
+
+.tagline {
+    color: #fff;
+    display: none;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 500;
+    margin: 0;
+    width: 50%;
+
+    @include respond-to(tablet) {
+        display: block;
+        font-size: 16px;
+        width: auto;
+    }
+}
+
+// Booking Floater
+.bookfloat {
+    background: $color-blue-mid;
+    color: #fff;
+    font-size: 14px;
+    padding: .75em 1em;
+    text-align: center;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+
+    p {
+        font-size: inherit;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    a {
+        color: #fff;
+        font-size: inherit;
+        font-weight: 700;
+    }
+
+    .icon,
+    .label {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .icon {        
+        font-size: 24px;
+        margin-right: 4px;
+    }
+
+    @include respond-to(smallscreen) {
+        background: $color-orange;
+        font-size: 14px;
+
+        position: fixed;
+        top: 0;
+        right: 5%;
+        z-index: 1000;
+    }
+}
+
+// Content
+
+@include keyframes(introCircle) {
+    from {
+        opacity: 0;
+        // @include transform(translateX(-15%));
+        @include transform(scale(0.9));
+    }
+    to {
+        opacity: 1;
+        // @include transform(translateX(0));
+        @include transform(scale(1));
+    }
+}
+
+@include keyframes(introCircleContent) {
+    0% {
+        opacity: 0;
+        @include transform(scale(0));
+        // @include transform(translateX(15%));
+    }
+    50% {
+        opacity: 1;
+        @include transform(scale(1));
+    }
+    75% {
+        opacity: 1;
+        @include transform(scale(.9));
+    }
+    100% {
+        opacity: 1;
+        @include transform(scale(1));
+        // @include transform(translateX(0));
+    }
+}
+
+
+.row--banner {
+    margin-bottom: 0;
+    padding-bottom: 7%;
+    position: relative;
+
+    @include respond-to(tablet) {
+        padding-bottom: 12%;
+    }
+
+    @include respond-to(smallscreen) {
+        padding-bottom: 10%;
+    }
+}
+
+.banner {
+    &__circle,
+    &__content {
+        border-radius: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        text-align: center;
+
+        position: relative;
+
+        @include transition-property(left,top,height,width,margin);
+        @include transition-duration(250ms);
+    }
+
+    &__circle {    
+        box-shadow: rgba(#fff,.25) 0 0 0 10px, inset rgba($color-blue,.15) 0 0 0 10px;
+        height: 200px;
+        width: 200px;
+
+        left: -25%;
+        z-index: 1;
+
+        &--small {
+            display: none;
+        }
+    }
+
+    &__content {
+        background-color: #fff;
+        background-color: rgba(#fff,.9);
+        box-shadow: rgba(#fff,.25) 0 0 0 10px, inset rgba($color-blue,.15) 0 0 0 10px;
+        height: 250px;
+        width: 250px;
+
+        margin-top: -6em;
+        left: 15%;
+        z-index: 2;
+
+        .inner {
+            display: block;
+            padding-top: 3em;
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+
+        h1 {
+            font-weight: 400;
+            margin-bottom: .5em;
+
+            strong {
+                color: $color-blue;
+                font-size: 1.2em;
+            }
+        }
+
+        h2 {
+            font-weight: 500;
+        }
+    }
+
+    @include respond-to(tablet) {
+        &__circle,
+        &__content {
+            display: inline-block;
+            vertical-align: middle;
+            @include transform(translateZ(0));
+
+            @include animation-iteration-count(1);
+            @include animation-fill-mode(both);
+        }
+
+        &__circle {
+            box-shadow: rgba(#fff,.20) 0 0 0 15px, inset rgba($color-blue,.15) 0 0 0 10px;            
+            height: 400px;
+            width: 400px;
+
+            left: 2.5%;
+            top: 0;
+
+            @include animation-delay(1s);
+            @include animation-duration(2s);
+            @include animation-name(introCircle);
+            @include animation-timing-function($ease-in-out-quart);
+
+            &--small {
+                box-shadow: rgba(#fff,.20) 0 0 0 8px, inset rgba($color-blue,.15) 0 0 0 4px;
+                display: none;
+            }
+        }
+
+        &__content {
+            box-shadow: rgba(#fff,.20) 0 0 0 25px, inset rgba($color-blue,.15) 0 0 0 10px;
+            height: 250px;
+            width: 250px;
+
+            margin-top: 4em;
+            left: -2.5%;
+
+            @include animation-delay(2s);
+            @include animation-duration(1s);
+            @include animation-name(introCircleContent);
+            @include animation-timing-function(ease-in-out);
+        }
+    }
+
+    @include respond-to(desktop) {
+
+        &__circle {
+            &--small {
+                display: block;
+                height: 200px;
+                width: 200px;
+
+                position: absolute;
+            }
+        }
+    }
+}
+
+.bc-2 {
+    top: 40%;
+    left: 10%;
+}
+
+.bc-3 {
+    top: 20%;
+    left: 70%;
+}
+
+// Intro Row.
+
+@include respond-to(tablet) {
+
+    .row--intro {
+        border-top: 10px solid #e9e9e9;
+        padding-top: 0;
+
+        .csstransforms & {
+            border-top: 0;
+            position: relative;
+
+            &:before,
+            &:after {
+                content: " ";
+                display: block;
+                height: 60px;
+                width: 120%;
+
+                position: absolute;
+                top: -30px;
+                left: -10%;
+            }
+
+            &:before {
+                background: #fff;
+                @include transform(rotate(2deg));
+                z-index: -1;
+            }
+
+            &:after {
+                background: rgba(#fff, .33);
+                @include transform(rotate(-2deg));
+                z-index: -2;
+            }
+
+            .content:first-child {
+                padding-top: 2em;
+            }
+        }
+    }
+}
+
+// Testimonials
+
+.testimonials {
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    &__scroller {
+        word-spacing: -4px;
+    }
+
+    &__pages {
+        $pages-dim: 8px;
+
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        width: 100%;
+
+        li {
+            @include hide-text;
+            border: 1px solid #fff;
+            border-color: rgba(#fff,.75);
+            border-radius: $pages-dim/2;
+            display: inline-block;
+            height: $pages-dim;
+            margin: 0 $pages-dim/2;
+            padding: 0;
+            width: $pages-dim;
+
+            &.current {
+                background-color: #fff;
+            }
+        }
+    }
+
+    @include respond-to(tablet-max) {
+        height: 500px;
+
+        &__scroller {
+            height: 100%;
+            position: absolute;
+            width: 400%;   
+            @include transform(translateZ(0));
+        }        
+    }
+
+    @include respond-to(smallscreen) {
+        &__pages {
+            display: none;
+        }
+    }
+}
+
+.testimonial {
+    display: inline-block;
+    float: none;
+    margin-bottom: 1.5em;
+    text-align: center;
+    white-space: normal;
+    word-spacing: 0;
+    vertical-align: middle;
+
+    &__content {
+        margin: 0 auto .5em;
+        width: 90%;
+        max-width: 25em;
+    }
+
+    &__quote {
+        border: 2px solid #fff;
+        border-color: rgba(#fff,.5);
+        border-radius: 6px;
+        color: #fff;
+        display: block;
+        margin: 0;
+        font-size: 18px;
+        line-height: 1.3;
+        padding: 1em;
+
+        q {
+            display: block;
+            margin-bottom: .75em;
+        }
+
+        a {
+            background: #fff;
+            background: rgba(#fff,.2);
+            border-radius: 3px;
+            color: #fff;
+            color: rgba(#fff,.75);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 2px 5px;
+            text-transform: uppercase;
+
+            @include transition(all 150ms);
+
+            &:hover {
+                background: #fff;
+                color: $color-blue-mid;
+            }
+        }
+    }
+
+    &__arrow {
+        display: block;
+        margin: 0 auto;
+        @include triangle(15px, #fff, down);
+        @include triangle(15px, rgba(#fff,.5), down);
+    }
+
+    &__img {
+        border-radius: 75px;
+        height: 150px;
+        margin: 0 auto .5em;
+        width: 150px;
+        overflow: hidden;
+    }
+
+    &__name {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.3;
+
+        em {
+            display: block;
+            font-style: normal;
+        }
+    }
+
+    blockquote {
+        display: none;
+    }
+
+    @include respond-to(tablet-max) {   
+        width: 25%;
+        @include transform(translate3d(0,0,0));
+    }
+
+    @include respond-to(smallscreen) {
+        margin-bottom: 3em;
+        vertical-align: bottom;
+        width: 50%;
+
+        &__content {
+            width: 100%;
+        }
+
+        &__img {
+            border-radius: 60px;
+            height: 120px;
+            width: 120px;
+        }
+    }
+}
+
+
+
+// Contact area
+
+.contact-item {
+    border: 2px solid $color-blue-light;
+    border-radius: 6px;
+    margin: 0 auto 5%;
+    padding: .75em 1em;
+    text-align: center;
+    width: 100%;
+    max-width: 30em;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    a {
+        &:link,
+        &:visited {
+            color: $color-blue-mid;
+        }
+
+        &:hover {
+            color: $color-blue-dark;
+        }
+    }
+
+    .icon,
+    .label {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .icon {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .label {
+        font-weight: 500;
+    }
+}
+
+
+// Modal
+
+.modal {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    .positionfixed & {
+        position: fixed;
+    }
+
+    visibility: hidden;
+    @include transition-property(visibility);
+    @include transition-duration(0ms);
+    @include transition-delay($modal-anim-duration + $modal-anim-delay);
+
+    &__inner {
+        background: #fff;
+        height: 100%;
+        width: 100%;
+
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @include transform(translateX(100%));
+        @include transition-property(transform);
+        @include transition-duration($modal-anim-duration);
+        @include transition-delay(0ms);
+        @include transition-timing-function($modal-anim-timing);
+    }
+
+    &__container {
+        background: #fff;
+
+        .modal-close {
+            background: #ddd;
+            border-radius: 3px;
+            color: #999;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: .5em .75em;
+            text-transform: uppercase;
+        }
+
+        header {
+            border-bottom: 1px solid #ddd;
+            margin: 0;
+            padding: .5em 0;
+            text-align: center;
+        }
+
+        section {
+            padding: .75em 1em;
+        }
+
+        p {
+            color: #222;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        cite {
+            font-size: 14px;
+            font-weight: 500;
+            font-style: normal;
+        }
+    }
+
+    @include respond-to(tablet) {
+
+        display: table;
+
+        &__inner {
+            background: rgba(#000,.2);
+            display: table-cell;
+            overflow: hidden;
+            text-align: center;
+            vertical-align: middle;
+
+            position: relative;
+
+            opacity: 0;
+            @include transform(none);
+            @include transition(opacity $modal-anim-duration);
+
+            // @include transition-property(transform);
+            // @include transition-duration($modal-anim-duration);
+            // @include transition-delay(0ms);
+            // @include transition-timing-function($modal-anim-timing);
+        }
+
+         &__container {
+            border-radius: 4px;
+            box-shadow: rgba(#000, .25) 0 0 0 5px;
+            height: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            width: 500px;
+
+            header {
+                height: 50px;
+            }
+
+            section {
+                height: 450px;
+                overflow: auto;
+            }
+        }
+
+    }
+}
+
+// html active class
+.modal-active {    
+    overflow: hidden;
+
+    .container {
+        @include transform(translateX(-100%));
+        @include transition-duration($modal-anim-duration + $modal-anim-delay);
+        @include transition-delay($modal-anim-delay);
+    }
+
+    .modal {
+        visibility: visible;
+        @include transition-delay(0ms);
+
+        &__inner {
+            @include transform(translateX(0));
+            @include transition-delay($modal-anim-delay);
+        }
+    }
+
+    @include respond-to(device-max) {
+        .positionfixed & {
+            position: absolute;
+        }
+    }
+
+    @include respond-to(tablet) {
+        // overflow: visible;
+
+        .container {
+            @include transform(none);
+        }
+
+        .modal {
+            &__inner {
+                opacity: 1;
+            }
+        }
+    }
+}

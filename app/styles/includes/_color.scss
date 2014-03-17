@@ -1,0 +1,9 @@
+$color-blue: #4daaf1;
+$color-blue-faint: tint($color-blue, 92%);
+$color-blue-light: tint($color-blue, 66%);
+$color-blue-mid: darken($color-blue, 15%);
+$color-blue-dark: darken($color-blue, 50%);
+
+$color-orange: darken(saturate(#FF7C45, 10%), 5%);
+$color-orange-light: tint($color-orange, 92%);
+$color-orange-mid: darken($color-orange, 10%);

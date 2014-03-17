@@ -1,0 +1,13 @@
+{
+  "name": "firstswim",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.10.2",
+    "bourbon": "master",
+    "ionicons": "~1.4.1",
+    "iscroll": "~5.1.1",
+    "matchmedia": "~0.2.0"
+  },
+  "devDependencies": {}
+}

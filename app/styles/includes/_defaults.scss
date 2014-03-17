@@ -1,0 +1,45 @@
+// Sizing
+$gw-column: 100px;          // Column Width
+$gw-gutter: 30px;           // Gutter Width
+
+// Media Query breaks.
+//$break-small: 480px;
+//$break-tablet: 600px;
+$break-device: 600px;
+$break-smallscreen: 800px;
+$break-large: 980px;
+$break-xlarge: 1280px;
+$break-xxlarge: 1480px;
+$break-tv: 1900px;
+
+// Fonts
+$helvetica-light:  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+$gill-sans: "Gill Sans", "Gill Sans MT", Calibri, Trebuchet, sans-serif;
+$times: "Times New Roman", Times, $georgia;
+$lato: "Lato", $helvetica;
+
+// Media Sizing
+$img-dim-mini: 25px;
+$img-dim-sm: 40px;
+$img-dim-sm-d: 50px;
+$img-dim-med: 70px;
+$img-dim-lg: 100px;
+$img-dim-xlg: 150px;
+
+// Form element sizing
+$btn-h-lg: 45px;
+$btn-h-med: 30px;
+$btn-h-sm: 24px;
+$btn-h-mini: 20px;
+
+$el-height: 42px;
+$label-width: 30%;
+$label-width-wide: 60%;
+$label-width-cb: 200px;
+
+$control-dim-mobile: 32px;
+$control-dim: 26px;
+
+// Nav
+$nav-width: 16em;
+$nav-width-d: 12em;
