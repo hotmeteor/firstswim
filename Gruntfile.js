@@ -41,15 +41,15 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-            // compass: {
-            //     files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-            //     tasks: ['compass:server', 'autoprefixer']
-            // },
+            compass: {
+                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+                tasks: ['compass:server', 'autoprefixer']
+            },
             styles: {
-                // files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-                // tasks: ['newer:copy:styles', 'autoprefixer']
-                files: ['<%= yeoman.app %>/styles/{,*/}*.scss'],
-                tasks: ['newer:copy:styles', 'sass']
+                files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+                tasks: ['newer:copy:styles', 'autoprefixer']
+                // files: ['<%= yeoman.app %>/styles/{,*/}*.scss'],
+                // tasks: ['newer:copy:styles', 'sass']
             },
             livereload: {
                 options: {
@@ -307,10 +307,11 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'
+                        'fonts/{,*/}*.*'
                     ]
                 }]
             },
+            
             styles: {
                 expand: true,
                 dot: true,
@@ -337,14 +338,14 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up build process
         concurrent: {
             server: [
-                // 'compass:server',
+                'compass:server',
                 'copy:styles'
             ],
             test: [
                 'copy:styles'
             ],
             dist: [
-                // 'compass',
+                'compass',
                 'copy:styles',
                 'imagemin',
                 'svgmin'
@@ -412,8 +413,8 @@ module.exports = function (grunt) {
         'copy:dist',
         'modernizr',
         // 'rev',
-        'usemin',
-        'htmlmin'
+        'usemin'
+        // 'htmlmin'
     ]);
 
     grunt.registerTask('default', [
